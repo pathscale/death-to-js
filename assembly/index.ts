@@ -6,6 +6,7 @@ export function add(a: i32, b: i32): i32 {
   return a + b;
 }
 
-export function hello(): string {
+export function hello(fn: (num: number) => void): string {
+  fn(25);
   return "Hello World!";
 }
