@@ -3,7 +3,6 @@ module.exports = {
   root: true,
   extends: [
     "eslint:recommended",
-    "plugin:node/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:unicorn/recommended",
