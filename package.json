@@ -1,0 +1,27 @@
+{
+  "name": "death-to-js",
+  "version": "0.0.1",
+  "description": "Random experiments with Assembly Script",
+  "keywords": [
+    "wasm"
+  ],
+  "license": "MIT",
+  "author": "Anton Kudryavtsev <boblobl4@gmail.com>",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "scripts": {
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized",
+    "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat --sourceMap --optimize",
+    "asbuild:untouched": "asc assembly/index.ts -b build/untouched.wasm -t build/untouched.wat --sourceMap --debug",
+    "test": "npm run asbuild && ts-node --files --project tests/tsconfig.json tests/index.ts"
+  },
+  "dependencies": {
+    "@assemblyscript/loader": "^0.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "assemblyscript": "^0.13.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  }
+}
